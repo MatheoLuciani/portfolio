@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ data.name }} - Portfolio BUT RT{% endblock %}
+
+{% block body %}
+    {# Navbar #}
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">{{ data.name|split(' ')|first }}</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#parcours">Parcours</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {# Flash Messages #}
+    {% for message in app.flashes('success') %}
+        <div class="container mt-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    {% endfor %}
+
+    {# Hero Section #}
+    <section id="accueil" class="hero container">
+        <div class="row w-100 align-items-center">
+            <div class="col-lg-8">
+                <p class="section-title">Portfolio BUT RT</p>
+                <h1>{{ data.name }}</h1>
+                <p class="lead text-secondary mb-4">
+                    {{ data.title }} à l'{{ data.school }}. Passionné par les réseaux, la cybersécurité et l'administration système.
+                </p>
+                <div>
+                    <a href="#projets" class="btn btn-primary me-2">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Projets Section #}
+    <section id="projets" class="container py-5">
+        <h2>Projets</h2>
+        <div class="row g-4">
+            {% for project in data.projects %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <h3>{{ project.title }}</h3>
+                        <p class="text-secondary">{{ project.description }}</p>
+                        <div class="tech">
+                            {% for tech in project.technologies %}
+                                <span class="tech-badge">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Parcours Section #}
+    <section id="parcours" class="container py-5">
+        <h2>Parcours &amp; Compétences</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Formation</h3>
+                <div class="mb-3">
+                    <p style="font-weight: 600;">{{ data.education.degree }}</p>
+                    <p class="text-secondary">{{ data.education.school }} — {{ data.education.period }}</p>
+                </div>
+                <p class="text-secondary">{{ data.education.description }}</p>
+            </div>
+            <div class="col-lg-6">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Compétences</h3>
+                <div class="row g-2">
+                    {% for skill in data.skills %}
+                        <div class="col-6"><span class="tech-badge">{{ skill }}</span></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Contact Section #}
+    <section id="contact" class="container py-5">
+        <h2 class="mb-4">Prendre contact</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <form method="post" action="{{ path('app_contact') }}">
+                    <div class="mb-3">
+                        <input type="text" name="name" class="form-control" placeholder="Ton nom" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Ton email" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="message" class="form-control" rows="5" placeholder="Ton message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Infos de contact</h3>
+                <p><strong>Email :</strong> {{ data.email }}</p>
+                <p><strong>Téléphone :</strong> {{ data.phone }}</p>
+                <p><strong>Localisation :</strong> {{ data.location }}</p>
+                <div class="social-links">
+                    <a href="{{ data.github }}" target="_blank">GitHub</a>
+                    <a href="{{ data.linkedin }}" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# Footer #}
+    <footer>
+        <div class="container">
+            <p>&copy; {{ 'now'|date('Y') }} {{ data.name }}. Tous droits réservés. — Portfolio BUT RT</p>
+        </div>
+    </footer>
+{% endblock %}

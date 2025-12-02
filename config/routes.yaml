@@ -7,5 +7,14 @@
 # To list all registered routes, run the following command:
 #   bin/console debug:router
 
+# config/routes.yaml
 controllers:
-    resource: routing.controllers
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+# Route manuelle pour la page d'accueil
+app_home:
+    path: /
+    controller: App\Controller\PortfolioController::index

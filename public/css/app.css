@@ -1,0 +1,231 @@
+/* public/css/app.css */
+
+:root {
+    --primary-bg: #000;
+    --secondary-bg: #0a0a0a;
+    --tertiary-bg: #151515;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --border-color: #333;
+    --accent-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--secondary-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-primary) !important;
+    font-size: 1.3rem;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+.nav-link:hover {
+    color: var(--text-primary) !important;
+}
+
+/* Hero / Sections */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+/* Cards */
+.project-card {
+    background-color: var(--tertiary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.project-card:hover {
+    border-color: var(--text-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card .tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-badge {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--primary-bg);
+    font-weight: 600;
+    padding: 0.7rem 2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 0.7rem 2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+/* Form */
+.form-control {
+    background-color: var(--tertiary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: var(--tertiary-bg);
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    margin-top: 5rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Utility */
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 3rem 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Flash messages */
+.alert {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        min-height: 50vh;
+        padding: 2rem 0;
+    }
+}
