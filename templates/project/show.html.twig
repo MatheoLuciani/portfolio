@@ -1,0 +1,135 @@
+{# templates/project/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ project.title }} - Portfolio{% endblock %}
+
+{% block body %}
+    {% include 'components/navbar.html.twig' %}
+
+    {# Breadcrumb #}
+    <section class="container pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('app_home') }}" style="color: var(--text-secondary); text-decoration: none;">
+                        Accueil
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ path('app_projects') }}" style="color: var(--text-secondary); text-decoration: none;">
+                        Projets
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" style="color: var(--text-primary);">
+                    {{ project.title }}
+                </li>
+            </ol>
+        </nav>
+    </section>
+
+    {# Project Header #}
+    <section class="container py-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <p class="section-title">{{ project.category }}</p>
+                <h1>{{ project.title }}</h1>
+                <p class="lead text-secondary mb-4">
+                    {{ project.short_description }}
+                </p>
+                
+                {# Meta info #}
+                <div class="d-flex gap-4 mb-4">
+                    <div>
+                        <small class="text-secondary d-block">Date</small>
+                        <strong>{{ project.date }}</strong>
+                    </div>
+                    <div>
+                        <small class="text-secondary d-block">Catégorie</small>
+                        <strong>{{ project.category }}</strong>
+                    </div>
+                </div>
+
+                {# Technologies #}
+                <div class="tech mb-4">
+                    {% for tech in project.technologies %}
+                        <span class="tech-badge">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+
+                {# Actions #}
+                <div class="d-flex gap-2 flex-wrap mb-5">
+                    {% if project.github %}
+                        <a href="{{ project.github }}" 
+                           target="_blank" 
+                           class="btn btn-primary">
+                            Voir sur GitHub →
+                        </a>
+                    {% endif %}
+                    {% if project.demo %}
+                        <a href="{{ project.demo }}" 
+                           target="_blank" 
+                           class="btn btn-secondary">
+                            Voir la démo →
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Project Details #}
+    <section class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem;">Description détaillée</h2>
+                <div class="text-secondary" style="font-size: 1.1rem; line-height: 1.8;">
+                    {{ project.description|nl2br }}
+                </div>
+
+                {# Vous pouvez ajouter d'autres sections ici #}
+                {% if project.tasks is defined %}
+                    <h3 style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">
+                        Tâches réalisées
+                    </h3>
+                    <ul class="text-secondary" style="font-size: 1.1rem; line-height: 1.8;">
+                        {% for task in project.tasks %}
+                            <li class="mb-2">{{ task }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Navigation #}
+    <section class="container py-5">
+        <div class="d-flex justify-content-between">
+            <a href="{{ path('app_projects') }}" class="btn btn-secondary">
+                ← Tous les projets
+            </a>
+            <a href="{{ path('app_contact') }}" class="btn btn-primary">
+                Me contacter
+            </a>
+        </div>
+    </section>
+
+    {% include 'components/footer.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "→";
+            color: var(--text-secondary);
+        }
+    </style>
+{% endblock %}

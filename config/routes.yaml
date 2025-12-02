@@ -17,4 +17,4 @@ controllers:
 # Route manuelle pour la page d'accueil
 app_home:
     path: /
-    controller: App\Controller\PortfolioController::index
+    controller: App\Controller\HomeController::index

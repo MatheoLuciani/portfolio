@@ -1,0 +1,42 @@
+{# templates/components/navbar.html.twig #}
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ path('app_home') }}">
+            {% if name is defined %}
+                {{ name|split(' ')|first }}
+            {% else %}
+                Portfolio
+            {% endif %}
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}" 
+                       href="{{ path('app_home') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_project' ? 'active' : '' }}" 
+                       href="{{ path('app_projects') }}">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_about' ? 'active' : '' }}" 
+                       href="{{ path('app_about') }}">Parcours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_contact' ? 'active' : '' }}" 
+                       href="{{ path('app_contact') }}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .nav-link.active {
+        color: var(--text-primary) !important;
+        font-weight: 600;
+    }
+</style>

@@ -1,0 +1,85 @@
+{# templates/project/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Projets - Portfolio{% endblock %}
+
+{% block body %}
+    {% include 'components/navbar.html.twig' %}
+
+    {# Header Section #}
+    <section class="container py-5">
+        <p class="section-title">Portfolio</p>
+        <h1>Mes Projets</h1>
+        <p class="lead text-secondary mb-4">
+            Découvrez mes réalisations en réseaux, administration système, cybersécurité et développement.
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Projects Grid #}
+    <section class="container py-5">
+        <div class="row g-4">
+            {% for project in projects %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        {# Category badge #}
+                        <div class="mb-2">
+                            <span class="tech-badge">{{ project.category }}</span>
+                        </div>
+                        
+                        <h3>{{ project.title }}</h3>
+                        <p class="text-secondary">{{ project.short_description }}</p>
+                        
+                        {# Technologies #}
+                        <div class="tech mb-3">
+                            {% for tech in project.technologies %}
+                                <span class="tech-badge">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        
+                        {# Date #}
+                        <p class="text-secondary mb-3" style="font-size: 0.85rem;">
+                            <small>{{ project.date }}</small>
+                        </p>
+                        
+                        {# Actions #}
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="{{ path('app_project_show', {'id': project.id}) }}" 
+                               class="btn btn-sm btn-primary">
+                                Voir les détails
+                            </a>
+                            {% if project.github %}
+                                <a href="{{ project.github }}" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-secondary">
+                                    GitHub →
+                                </a>
+                            {% endif %}
+                            {% if project.demo %}
+                                <a href="{{ project.demo }}" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-secondary">
+                                    Démo →
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# CTA Section #}
+    <section class="container py-5 text-center">
+        <h2>Vous avez un projet ?</h2>
+        <p class="lead text-secondary mb-4">
+            N'hésitez pas à me contacter pour discuter de vos besoins.
+        </p>
+        <a href="{{ path('app_contact') }}" class="btn btn-primary">Me contacter</a>
+    </section>
+
+    {% include 'components/footer.html.twig' %}
+{% endblock %}

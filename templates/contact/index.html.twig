@@ -1,0 +1,213 @@
+{# templates/contact/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - {{ data.name }}{% endblock %}
+
+{% block body %}
+    {% include 'components/navbar.html.twig' with {'name': data.name} %}
+
+    {# Flash Messages #}
+    {% for message in app.flashes('success') %}
+        <div class="container mt-4">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" 
+                 style="background-color: var(--tertiary-bg); border-color: #28a745; color: #28a745;">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                        style="filter: brightness(0) saturate(100%) invert(56%) sepia(93%) saturate(384%) hue-rotate(76deg) brightness(95%) contrast(89%);"></button>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        <div class="container mt-4">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert"
+                 style="background-color: var(--tertiary-bg); border-color: #dc3545; color: #dc3545;">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        style="filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);"></button>
+            </div>
+        </div>
+    {% endfor %}
+
+    {# Hero Section #}
+    <section class="container py-5">
+        <p class="section-title">Contact</p>
+        <h1>Prenons contact</h1>
+        <p class="lead text-secondary mb-4">
+            Une question ? Un projet ? N'hésitez pas à me contacter, je vous répondrai dans les plus brefs délais.
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Contact Section #}
+    <section class="container py-5">
+        <div class="row g-5">
+            {# Formulaire #}
+            <div class="col-lg-6">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem;">Envoyez-moi un message</h2>
+                <form method="post" action="{{ path('app_contact_send') }}">
+                    <div class="mb-4">
+                        <label for="name" class="form-label">Votre nom *</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="name" 
+                               name="name" 
+                               placeholder="John Doe" 
+                               required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Votre email *</label>
+                        <input type="email" 
+                               class="form-control" 
+                               id="email" 
+                               name="email" 
+                               placeholder="john.doe@example.com" 
+                               required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="subject" class="form-label">Sujet</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="subject" 
+                               name="subject" 
+                               placeholder="Demande de stage / Collaboration / Autre">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="form-label">Votre message *</label>
+                        <textarea class="form-control" 
+                                  id="message" 
+                                  name="message" 
+                                  rows="6" 
+                                  placeholder="Décrivez votre demande..." 
+                                  required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+
+            {# Informations #}
+            <div class="col-lg-6">
+                <h2 style="font-size: 1.8rem; margin-bottom: 2rem;">Informations de contact</h2>
+                
+                <div class="project-card mb-4">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">Coordonnées</h3>
+                    
+                    <div class="mb-3">
+                        <p class="text-secondary mb-1"><strong>Email</strong></p>
+                        <p class="mb-0">
+                            <a href="mailto:{{ data.email }}" 
+                               style="color: var(--text-primary); text-decoration: none;">
+                                {{ data.email }}
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p class="text-secondary mb-1"><strong>Téléphone</strong></p>
+                        <p class="mb-0">
+                            <a href="tel:{{ data.phone }}" 
+                               style="color: var(--text-primary); text-decoration: none;">
+                                {{ data.phone }}
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p class="text-secondary mb-1"><strong>Localisation</strong></p>
+                        <p class="mb-0">{{ data.location }}</p>
+                    </div>
+                </div>
+
+                <div class="project-card mb-4">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">Réseaux sociaux</h3>
+                    <div class="social-links d-flex flex-column gap-3">
+                        {% if data.github %}
+                            <a href="{{ data.github }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="d-flex align-items-center">
+                                <span style="width: 100px;">GitHub</span>
+                                <span style="color: var(--text-secondary);">→</span>
+                            </a>
+                        {% endif %}
+                        {% if data.linkedin %}
+                            <a href="{{ data.linkedin }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="d-flex align-items-center">
+                                <span style="width: 100px;">LinkedIn</span>
+                                <span style="color: var(--text-secondary);">→</span>
+                            </a>
+                        {% endif %}
+                        {% if data.twitter %}
+                            <a href="{{ data.twitter }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="d-flex align-items-center">
+                                <span style="width: 100px;">Twitter</span>
+                                <span style="color: var(--text-secondary);">→</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">Disponibilité</h3>
+                    <p class="text-secondary mb-3">
+                        Je suis actuellement <strong style="color: var(--text-primary);">disponible</strong> pour :
+                    </p>
+                    <ul class="text-secondary mb-0">
+                        <li>Stages</li>
+                        <li>Alternances</li>
+                        <li>Projets freelance</li>
+                        <li>Collaborations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# FAQ ou autres infos #}
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Questions fréquentes</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="project-card">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Délai de réponse</h3>
+                    <p class="text-secondary mb-0">
+                        Je réponds généralement sous 24-48 heures aux messages reçus.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-card">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Collaboration</h3>
+                    <p class="text-secondary mb-0">
+                        Je suis ouvert aux collaborations sur des projets intéressants et innovants.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'components/footer.html.twig' with {'name': data.name, 'github': data.github, 'linkedin': data.linkedin} %}
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .form-label {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+{% endblock %}

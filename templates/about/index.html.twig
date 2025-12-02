@@ -1,0 +1,172 @@
+{# templates/about/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Parcours - {{ data.name }}{% endblock %}
+
+{% block body %}
+    {% include 'components/navbar.html.twig' with {'name': data.name} %}
+
+    {# Hero Section #}
+    <section class="container py-5">
+        <p class="section-title">À propos</p>
+        <h1>{{ data.name }}</h1>
+        <p class="lead text-secondary mb-4">
+            {{ data.title }}
+        </p>
+        <p class="text-secondary" style="font-size: 1.1rem; line-height: 1.8; max-width: 800px;">
+            {{ data.bio }}
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Formation #}
+    <section class="container py-5">
+        <h2>Formation</h2>
+        <div class="row g-4">
+            {% for edu in data.education %}
+                <div class="col-12">
+                    <div class="project-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">
+                                    {{ edu.degree }}
+                                </h3>
+                                <p class="text-secondary mb-0">
+                                    <strong>{{ edu.school }}</strong> — {{ edu.location }}
+                                </p>
+                            </div>
+                            <span class="tech-badge">{{ edu.period }}</span>
+                        </div>
+                        <p class="text-secondary mb-3">{{ edu.description }}</p>
+                        {% if edu.highlights|length > 0 %}
+                            <ul class="text-secondary mb-0">
+                                {% for highlight in edu.highlights %}
+                                    <li>{{ highlight }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Expérience #}
+    <section class="container py-5">
+        <h2>Expérience Professionnelle</h2>
+        <div class="row g-4">
+            {% for exp in data.experience %}
+                <div class="col-12">
+                    <div class="project-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">
+                                    {{ exp.title }}
+                                </h3>
+                                <p class="text-secondary mb-0">
+                                    <strong>{{ exp.company }}</strong> — {{ exp.location }}
+                                </p>
+                            </div>
+                            <span class="tech-badge">{{ exp.period }}</span>
+                        </div>
+                        <p class="text-secondary mb-3">{{ exp.description }}</p>
+                        {% if exp.tasks|length > 0 %}
+                            <ul class="text-secondary mb-0">
+                                {% for task in exp.tasks %}
+                                    <li>{{ task }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# Compétences #}
+    <section class="container py-5">
+        <h2>Compétences Techniques</h2>
+        <div class="row g-4">
+            {% for skillGroup in data.skills %}
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">
+                            {{ skillGroup.category }}
+                        </h3>
+                        {% for skill in skillGroup.items %}
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>{{ skill.name }}</span>
+                                    <span class="text-secondary">{{ skill.level }}%</span>
+                                </div>
+                                <div style="background: var(--border-color); height: 4px; border-radius: 2px; overflow: hidden;">
+                                    <div style="background: var(--accent-color); height: 100%; width: {{ skill.level }}%; transition: width 0.3s ease;"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {% if data.certifications|length > 0 %}
+        <div class="divider"></div>
+
+        {# Certifications #}
+        <section class="container py-5">
+            <h2>Certifications</h2>
+            <div class="row g-4">
+                {% for cert in data.certifications %}
+                    <div class="col-md-6">
+                        <div class="project-card">
+                            <h3 style="font-size: 1.3rem;">{{ cert.name }}</h3>
+                            <p class="text-secondary mb-2">{{ cert.organization }}</p>
+                            <span class="tech-badge">{{ cert.date }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <div class="divider"></div>
+
+    {# Centres d'intérêt #}
+    <section class="container py-5">
+        <h2>Centres d'intérêt</h2>
+        <div class="project-card">
+            <div class="row g-3">
+                {% for interest in data.interests %}
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <span style="color: var(--accent-color); margin-right: 0.75rem;">▸</span>
+                            <span>{{ interest }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    {# CTA #}
+    <section class="container py-5 text-center">
+        <h2>Télécharger mon CV</h2>
+        <p class="lead text-secondary mb-4">
+            Vous pouvez télécharger une version PDF de mon CV complet.
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="#" class="btn btn-primary">Télécharger le CV (PDF)</a>
+            <a href="{{ path('app_contact') }}" class="btn btn-secondary">Me contacter</a>
+        </div>
+    </section>
+
+    {% include 'components/footer.html.twig' with {'name': data.name} %}
+{% endblock %}

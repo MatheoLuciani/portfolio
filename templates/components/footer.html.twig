@@ -1,0 +1,31 @@
+{# templates/components/footer.html.twig #}
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+                <p class="mb-0">
+                    &copy; {{ 'now'|date('Y') }} 
+                    {% if name is defined %}
+                        {{ name }}
+                    {% else %}
+                        Portfolio
+                    {% endif %}
+                    . Tous droits réservés.
+                </p>
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+                <div class="social-links d-inline-flex">
+                    {% if github is defined and github %}
+                        <a href="{{ github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    {% endif %}
+                    {% if linkedin is defined and linkedin %}
+                        <a href="{{ linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    {% endif %}
+                    {% if twitter is defined and twitter %}
+                        <a href="{{ twitter }}" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
