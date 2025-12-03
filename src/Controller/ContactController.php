@@ -14,11 +14,11 @@ class ContactController extends AbstractController
     public function index(): Response
     {
         $data = [
-            'name' => 'Ton Nom Complet',
-            'email' => 'ton.email@etu.univ-st-etienne.fr',
-            'phone' => '+33 6 XX XX XX XX',
+            'name' => 'Mathéo Luciani',
+            'email' => 'matheo.luciani@etu.univ-st-etienne.fr',
+            'phone' => '+33 7 45 24 29 41',
             'location' => 'Roanne, France',
-            'github' => 'https://github.com/tonusername',
+            'github' => 'https://github.com/MatheoLuciani',
             'linkedin' => 'https://linkedin.com/in/tonusername',
             'twitter' => null, // Optionnel
         ];

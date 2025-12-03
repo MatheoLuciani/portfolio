@@ -13,7 +13,7 @@ class AboutController extends AbstractController
     public function index(): Response
     {
         $data = [
-            'name' => 'Ton Nom Complet',
+            'name' => 'Mathéo Luciani',
             'title' => 'Étudiant en BUT Réseaux & Télécommunications',
             'bio' => 'Étudiant passionné par les technologies réseaux et la cybersécurité. Fort d\'une expérience pratique en administration système Linux, virtualisation et développement, je recherche constamment à approfondir mes compétences techniques.',
             
@@ -23,7 +23,7 @@ class AboutController extends AbstractController
                     'degree' => 'BUT Réseaux & Télécommunications',
                     'school' => 'IUT de Roanne',
                     'location' => 'Roanne, France',
-                    'period' => '2022 - 2025',
+                    'period' => "2025 - Aujourd'hui",
                     'description' => 'Formation en alternance axée sur l\'administration réseaux, la cybersécurité, la virtualisation et le développement. Approche par compétences avec projets professionnels.',
                     'highlights' => [
                         'Administration de réseaux locaux et étendus',
@@ -33,11 +33,11 @@ class AboutController extends AbstractController
                     ]
                 ],
                 [
-                    'degree' => 'Baccalauréat STI2D',
-                    'school' => 'Lycée X',
-                    'location' => 'Ville, France',
-                    'period' => '2019 - 2022',
-                    'description' => 'Spécialité Systèmes d\'Information et Numérique',
+                    'degree' => 'Baccalauréat Général',
+                    'school' => 'Lycée Jean-Puy',
+                    'location' => 'Roanne, France',
+                    'period' => '2022 - 2025',
+                    'description' => 'Spécialité Mathématique et Sciences économiques et sociales',
                     'highlights' => []
                 ],
             ],
