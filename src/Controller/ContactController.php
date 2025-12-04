@@ -19,7 +19,7 @@ class ContactController extends AbstractController
             'phone' => '+33 7 45 24 29 41',
             'location' => 'Roanne, France',
             'github' => 'https://github.com/MatheoLuciani',
-            'linkedin' => 'https://linkedin.com/in/tonusername',
+            'linkedin' => 'https://www.linkedin.com/in/matheo-luciani-1128a1378/',
             'twitter' => null, // Optionnel
         ];
 

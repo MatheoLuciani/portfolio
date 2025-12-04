@@ -1,11 +1,8 @@
 {# templates/contact/index.html.twig #}
 {% extends 'base.html.twig' %}
-
 {% block title %}Contact - {{ data.name }}{% endblock %}
-
 {% block body %}
     {% include 'components/navbar.html.twig' with {'name': data.name} %}
-
     {# Flash Messages #}
     {% for message in app.flashes('success') %}
         <div class="container mt-4">
@@ -17,7 +14,6 @@
             </div>
         </div>
     {% endfor %}
-
     {% for message in app.flashes('error') %}
         <div class="container mt-4">
             <div class="alert alert-danger alert-dismissible fade show" role="alert"
@@ -28,7 +24,6 @@
             </div>
         </div>
     {% endfor %}
-
     {# Hero Section #}
     <section class="container py-5">
         <p class="section-title">Contact</p>
@@ -37,9 +32,7 @@
             Une question ? Un projet ? N'hésitez pas à me contacter, je vous répondrai dans les plus brefs délais.
         </p>
     </section>
-
     <div class="divider"></div>
-
     {# Contact Section #}
     <section class="container py-5">
         <div class="row g-5">
@@ -91,7 +84,6 @@
                     </button>
                 </form>
             </div>
-
             {# Informations #}
             <div class="col-lg-6">
                 <h2 style="font-size: 1.8rem; margin-bottom: 2rem;">Informations de contact</h2>
@@ -124,16 +116,24 @@
                         <p class="mb-0">{{ data.location }}</p>
                     </div>
                 </div>
-
-                <div class="project-card mb-4">
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+    {# Réseaux sociaux et Disponibilité - Côte à côte #}
+    <section class="container py-5">
+        <div class="row g-4">
+            {# Réseaux sociaux - Gauche #}
+            <div class="col-lg-6">
+                <div class="project-card">
                     <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">Réseaux sociaux</h3>              
                     <div class="social-links d-flex flex-column gap-3">
                         {% if data.github %}
                             <a href="{{ data.github }}" 
                                target="_blank" 
                                rel="noopener noreferrer"
-                               class="d-flex align-items-center">
-                                <span style="width: 100px;">GitHub</span>
+                               class="d-flex align-items-center justify-content-between">
+                                <span>GitHub</span>
                                 <span style="color: var(--text-secondary);">→</span>
                             </a>
                         {% endif %}
@@ -141,8 +141,8 @@
                             <a href="{{ data.linkedin }}" 
                                target="_blank" 
                                rel="noopener noreferrer"
-                               class="d-flex align-items-center">
-                                <span style="width: 100px;">LinkedIn</span>
+                               class="d-flex align-items-center justify-content-between">
+                                <span>LinkedIn</span>
                                 <span style="color: var(--text-secondary);">→</span>
                             </a>
                         {% endif %}
@@ -150,14 +150,17 @@
                             <a href="{{ data.twitter }}" 
                                target="_blank" 
                                rel="noopener noreferrer"
-                               class="d-flex align-items-center">
-                                <span style="width: 100px;">Twitter</span>
+                               class="d-flex align-items-center justify-content-between">
+                                <span>Twitter</span>
                                 <span style="color: var(--text-secondary);">→</span>
                             </a>
                         {% endif %}
                     </div>
                 </div>
+            </div>
 
+            {# Disponibilité - Droite #}
+            <div class="col-lg-6">
                 <div class="project-card">
                     <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem;">Disponibilité</h3>
                     <p class="text-secondary mb-3">
@@ -173,10 +176,8 @@
             </div>
         </div>
     </section>
-
     <div class="divider"></div>
-
-    {# FAQ ou autres infos #}
+    {# Questions fréquentes #}
     <section class="container py-5">
         <h2 class="text-center mb-4">Questions fréquentes</h2>
         <div class="row g-4">
@@ -198,10 +199,8 @@
             </div>
         </div>
     </section>
-
     {% include 'components/footer.html.twig' with {'name': data.name, 'github': data.github, 'linkedin': data.linkedin} %}
 {% endblock %}
-
 {% block stylesheets %}
     <style>
         .form-label {
