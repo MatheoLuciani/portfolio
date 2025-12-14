@@ -37,7 +37,7 @@ class AboutController extends AbstractController
                     'school' => 'Lycée Jean-Puy',
                     'location' => 'Roanne, France',
                     'period' => '2022 - 2025',
-                    'description' => 'Spécialité Mathématique et Sciences économiques et sociales',
+                    'description' => 'Spécialité Mathématique et Sciences économiques et sociales ( - Physique-Chimie abandonné en Première)',
                     'highlights' => []
                 ],
             ],
