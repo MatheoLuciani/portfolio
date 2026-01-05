@@ -45,28 +45,26 @@ class AboutController extends AbstractController
             // Expériences
             'experience' => [
                 [
-                    'title' => 'Technicien Réseau - Alternance',
-                    'company' => 'Entreprise X',
-                    'location' => 'Ville, France',
-                    'period' => 'Sept 2023 - Présent',
-                    'description' => 'Administration et maintenance de l\'infrastructure réseau de l\'entreprise.',
+                    'title' => 'Technicien Réseau - Stage',
+                    'company' => "Collège St Thérèse Jeanne D'Arc",
+                    'location' => 'Thizy, France',
+                    'period' => 'juin 2024',
+                    'description' => 'Administration et maintenance de l\'infrastructure réseau du collège.',
                     'tasks' => [
-                        'Configuration et maintenance des équipements réseau Cisco',
-                        'Support technique niveau 2 et 3',
+                        'Configuration et maintenance des équipements réseau',
                         'Gestion des accès VPN et sécurité périmétrique',
                         'Documentation technique et procédures'
                     ]
                 ],
                 [
-                    'title' => 'Stage - Administration Système',
-                    'company' => 'Entreprise Y',
-                    'location' => 'Ville, France',
-                    'period' => 'Avril 2023 - Juin 2023',
-                    'description' => 'Stage de 8 semaines en administration système Linux.',
+                    'title' => 'Stage - Administration Web',
+                    'company' => 'Entreprise Indépendante',
+                    'location' => 'Montagny, France',
+                    'period' => 'Juin 2022',
+                    'description' => "Stage d'une semaine en administration web html + découverte des serveurs.",
                     'tasks' => [
-                        'Installation et configuration de serveurs Linux',
-                        'Automatisation avec Bash et Ansible',
-                        'Surveillance et monitoring avec Nagios',
+                        "Création d'un site web de zéro en HTML 5",
+                        "Mise en ligne via un hebergeur",
                         'Gestion des sauvegardes'
                     ]
                 ],
@@ -89,19 +87,19 @@ class AboutController extends AbstractController
                     'items' => [
                         ['name' => 'Linux (Debian, Ubuntu, CentOS)', 'level' => 85],
                         ['name' => 'Windows Server', 'level' => 70],
-                        ['name' => 'Bash Scripting', 'level' => 80],
-                        ['name' => 'Apache / Nginx', 'level' => 75],
-                        ['name' => 'Docker', 'level' => 65],
+                        ['name' => 'Bash Scripting', 'level' => 20],
+                        ['name' => 'Apache / Nginx', 'level' => 0],
+                        ['name' => 'Docker', 'level' => 25],
                     ]
                 ],
                 [
                     'category' => 'Cybersécurité',
                     'items' => [
-                        ['name' => 'Firewall (iptables, pfSense)', 'level' => 80],
-                        ['name' => 'Tests d\'intrusion', 'level' => 65],
-                        ['name' => 'Analyse de vulnérabilités', 'level' => 70],
-                        ['name' => 'SSL/TLS', 'level' => 75],
-                        ['name' => 'SIEM', 'level' => 60],
+                        ['name' => 'Firewall (iptables, pfSense)', 'level' => 50],
+                        ['name' => 'Tests d\'intrusion', 'level' => 10],
+                        ['name' => 'Analyse de vulnérabilités', 'level' => 60],
+                        ['name' => 'SSL/TLS', 'level' => 50],
+                        ['name' => 'SIEM', 'level' => 0],
                     ]
                 ],
                 [
@@ -109,18 +107,18 @@ class AboutController extends AbstractController
                     'items' => [
                         ['name' => 'Python', 'level' => 80],
                         ['name' => 'PHP / Symfony', 'level' => 70],
-                        ['name' => 'SQL (MySQL, PostgreSQL)', 'level' => 75],
+                        ['name' => 'SQL (MySQL, PostgreSQL)', 'level' => 50],
                         ['name' => 'Git / GitLab', 'level' => 80],
-                        ['name' => 'API REST', 'level' => 70],
+                        ['name' => 'API REST', 'level' => 0],
                     ]
                 ],
                 [
                     'category' => 'Virtualisation & Cloud',
                     'items' => [
-                        ['name' => 'VMware ESXi / vSphere', 'level' => 75],
-                        ['name' => 'Proxmox', 'level' => 70],
-                        ['name' => 'Ansible', 'level' => 65],
-                        ['name' => 'Terraform', 'level' => 50],
+                        ['name' => 'VMware ESXi / vSphere', 'level' => 15],
+                        ['name' => 'Proxmox', 'level' => 0],
+                        ['name' => 'Ansible', 'level' => 0],
+                        ['name' => 'Terraform', 'level' => 0],
                     ]
                 ],
             ],

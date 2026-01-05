@@ -42,28 +42,6 @@
                         <p class="text-secondary mb-3" style="font-size: 0.85rem;">
                             <small>{{ project.date }}</small>
                         </p>
-                        
-                        {# Actions #}
-                        <div class="d-flex gap-2 flex-wrap">
-                            <a href="{{ path('app_project_show', {'id': project.id}) }}" 
-                               class="btn btn-sm btn-primary">
-                                Voir les détails
-                            </a>
-                            {% if project.github %}
-                                <a href="{{ project.github }}" 
-                                   target="_blank" 
-                                   class="btn btn-sm btn-secondary">
-                                    GitHub →
-                                </a>
-                            {% endif %}
-                            {% if project.demo %}
-                                <a href="{{ project.demo }}" 
-                                   target="_blank" 
-                                   class="btn btn-sm btn-secondary">
-                                    Démo →
-                                </a>
-                            {% endif %}
-                        </div>
                     </div>
                 </div>
             {% endfor %}
