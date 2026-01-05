@@ -49,7 +49,7 @@ class HomeController extends AbstractController
             'stats' => [
                 'projects' => 12,
                 'technologies' => 15,
-                'experience' => '3 ans'
+                'experience' => '1.5 ans'
             ]
         ];
 

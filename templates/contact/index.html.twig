@@ -199,6 +199,17 @@
             </div>
         </div>
     </section>
+    {# CTA #}
+    <section class="container py-5 text-center">
+        <h2>Télécharger mon CV</h2>
+        <p class="lead text-secondary mb-4">
+            Vous pouvez télécharger une version PDF de mon CV complet.
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+        <a href="{{ asset('files/CV.pdf') }}" class="btn btn-primary" download="CV_Matheo_Luciani.pdf">Télécharger le CV (PDF)</a>            
+        <a href="{{ path('app_contact') }}" class="btn btn-secondary">Me contacter</a>
+        </div>
+    </section>
     {% include 'components/footer.html.twig' with {'name': data.name, 'github': data.github, 'linkedin': data.linkedin} %}
 {% endblock %}
 {% block stylesheets %}
