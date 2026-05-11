@@ -1,4 +1,3 @@
-{# templates/project/index.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block title %}Mes Projets - Portfolio{% endblock %}
@@ -6,57 +5,60 @@
 {% block body %}
     {% include 'components/navbar.html.twig' %}
 
-    {# Header Section #}
     <section class="container py-5">
         <p class="section-title">Portfolio</p>
         <h1>Mes Projets</h1>
         <p class="lead text-secondary mb-4">
             Découvrez mes réalisations en réseaux, administration système, cybersécurité et développement.
         </p>
-    </section>
-
-    <div class="divider"></div>
-
-    {# Projects Grid #}
-    <section class="container py-5">
-        <div class="row g-4">
-            {% for project in projects %}
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card">
-                        {# Category badge #}
-                        <div class="mb-2">
-                            <span class="tech-badge">{{ project.category }}</span>
-                        </div>
-                        
-                        <h3>{{ project.title }}</h3>
-                        <p class="text-secondary">{{ project.short_description }}</p>
-                        
-                        {# Technologies #}
-                        <div class="tech mb-3">
-                            {% for tech in project.technologies %}
-                                <span class="tech-badge">{{ tech }}</span>
-                            {% endfor %}
-                        </div>
-                        
-                        {# Date #}
-                        <p class="text-secondary mb-3" style="font-size: 0.85rem;">
-                            <small>{{ project.date }}</small>
-                        </p>
-                    </div>
-                </div>
-            {% endfor %}
+        
+        <div class="mb-5">
+            <a href="https://docs.google.com/spreadsheets/d/1kKTDyOYZxXMt5qe3aMUQBETdfv1dCeHB0aWwNjX-dVk/edit?gid=0#gid=0" 
+               target="_blank" class="btn-portfolio">
+                Consulter mon Portfolio (Drive)
+            </a>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    {# CTA Section #}
-    <section class="container py-5 text-center">
-        <h2>Vous avez un projet ?</h2>
-        <p class="lead text-secondary mb-4">
-            N'hésitez pas à me contacter pour discuter de vos besoins.
-        </p>
-        <a href="{{ path('app_contact') }}" class="btn btn-primary">Me contacter</a>
+    <section class="container py-5">
+        <div class="row g-4">
+            {% for project in projects %}
+                <div class="col-md-6 col-lg-4">
+                    <a href="{{ path('app_project_show', {'id': project.id}) }}" class="project-card-link">
+                        <div class="project-card">
+                            {# L'image est insérée ici, sans changer tes classes CSS #}
+                            {% if project.image is defined %}
+                                <div class="mb-3">
+                                    <img src="{{ asset('images/projets/' ~ project.image) }}" 
+                                         alt="{{ project.title }}" 
+                                         class="img-fluid rounded" 
+                                         style="width: 100%; height: 180px; object-fit: cover; border: 1px solid var(--border-color);">
+                                </div>
+                            {% endif %}
+
+                            <div class="mb-2">
+                                <span class="tech-badge">{{ project.category }}</span>
+                            </div>
+                            
+                            <h3>{{ project.title }}</h3>
+                            <p class="text-secondary">{{ project.short_description }}</p>
+                            
+                            <div class="tech mb-3">
+                                {% for tech in project.technologies %}
+                                    <span class="tech-badge">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                            
+                            <p class="text-secondary mb-0">
+                                <small>{{ project.date }}</small>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </section>
 
     {% include 'components/footer.html.twig' %}

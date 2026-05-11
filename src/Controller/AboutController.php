@@ -77,7 +77,7 @@ class AboutController extends AbstractController
                     'items' => [
                         ['name' => 'Routage & Commutation', 'level' => 85],
                         ['name' => 'VLANs & Spanning Tree', 'level' => 80],
-                        ['name' => 'VPN (IPSec, OpenVPN)', 'level' => 75],
+                        ['name' => 'VPN (IPSec, OpenVPN)', 'level' => 65],
                         ['name' => 'Protocoles (TCP/IP, OSPF, BGP)', 'level' => 80],
                         ['name' => 'Wireshark', 'level' => 70],
                     ]
@@ -88,8 +88,8 @@ class AboutController extends AbstractController
                         ['name' => 'Linux (Debian, Ubuntu, CentOS)', 'level' => 85],
                         ['name' => 'Windows Server', 'level' => 70],
                         ['name' => 'Bash Scripting', 'level' => 20],
-                        ['name' => 'Apache / Nginx', 'level' => 0],
-                        ['name' => 'Docker', 'level' => 25],
+                        ['name' => 'Apache / Nginx', 'level' => 10],
+                        ['name' => 'Docker', 'level' => 75],
                     ]
                 ],
                 [
@@ -107,15 +107,15 @@ class AboutController extends AbstractController
                     'items' => [
                         ['name' => 'Python', 'level' => 80],
                         ['name' => 'PHP / Symfony', 'level' => 70],
-                        ['name' => 'SQL (MySQL, PostgreSQL)', 'level' => 50],
-                        ['name' => 'Git / GitLab', 'level' => 80],
+                        ['name' => 'SQL (MySQL, PostgreSQL)', 'level' => 70],
+                        ['name' => 'Git / GitLab', 'level' => 90],
                         ['name' => 'API REST', 'level' => 0],
                     ]
                 ],
                 [
                     'category' => 'Virtualisation & Cloud',
                     'items' => [
-                        ['name' => 'VMware ESXi / vSphere', 'level' => 15],
+                        ['name' => 'VMware ESXi / vSphere', 'level' => 85],
                         ['name' => 'Proxmox', 'level' => 0],
                         ['name' => 'Ansible', 'level' => 0],
                         ['name' => 'Terraform', 'level' => 0],
@@ -129,6 +129,12 @@ class AboutController extends AbstractController
                     'name' => 'CCNA',
                     'organization' => 'Cisco',
                     'date' => '2024',
+                    'credential' => null
+                ],
+                [
+                    'name' => 'Cambridge',
+                    'organization' => 'Cambridge',
+                    'date' => '2022',
                     'credential' => null
                 ],
                 // Ajoutez vos certifications ici
