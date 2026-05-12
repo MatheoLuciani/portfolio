@@ -31,16 +31,16 @@ class HomeController extends AbstractController
                 ],
                 [
                     'id' => 2,
-                    'title' => 'Serveur Web Sécurisé',
-                    'description' => 'Mise en place d\'un serveur LAMP sécurisé avec certificat SSL/TLS et durcissement système.',
-                    'technologies' => ['Linux', 'Apache', 'SSL'],
+                    'title' => 'Application Web',
+                    'description' => 'Mise en place d\'une application avec react',
+                    'technologies' => ['Vercel', 'Github'],
                     'image' => 'project2.jpg'
                 ],
                 [
                     'id' => 3,
                     'title' => 'Script Monitoring Réseau',
                     'description' => 'Automatisation du monitoring réseau avec alertes et génération de rapports.',
-                    'technologies' => ['Python', 'Bash', 'Ansible'],
+                    'technologies' => ['Python', 'Bash'],
                     'image' => 'project3.jpg'
                 ],
             ],

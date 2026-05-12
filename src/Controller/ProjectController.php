@@ -43,73 +43,61 @@ class ProjectController extends AbstractController
     {
         return [
             [
-                'id' => 1,
-                'title' => 'Infrastructure Réseau Entreprise',
-                'short_description' => 'Conception et déploiement d\'une infrastructure réseau complète.',
-                'description' => 'Étude de cas : Déploiement Sécurisé d\'une Architecture Multi-Sites (SAÉ 2.01)
+    'id' => 1,
+    'title' => 'Infrastructure Réseau Entreprise',
+    'short_description' => 'Conception et déploiement d\'une infrastructure réseau complète.',
+    'description' => "L’analyse réflexive est basée sur le modèle de GIBBS :
 
-1. Objectifs et Périmètre du Projet
-L\'objectif principal de ce projet était de concevoir et de déployer une topologie réseau interconnectant 4 sites géographiques distincts (LAN 1 à 4) via un cœur de réseau opérateur central en boucle. Le défi consistait à assurer une connectivité totale tout en garantissant une isolation stricte des flux inter-services.
+Étape 1 – EXPÉRIENCE : Ce projet consistait à concevoir de bout en bout l'architecture réseau d'une PME. J'ai dû segmenter le réseau pour isoler les services (VLANs), sécuriser les accès via des listes de contrôle (ACL) et mettre en place un serveur de transfert de fichiers (FTP) pour le partage de ressources internes, le tout configuré sur des équipements Cisco.
 
-2. Méthodologie et Mise en œuvre
-L\'architecture a été structurée pour répondre à des besoins réels d\'entreprise :
-- Plan d\'adressage : Utilisation du bloc IP 172.16.0.0/16 avec un découpage VLSM optimisé pour chaque sous-réseau.
-- Segmentation : Mise en place de VLANs spécifiques (VLAN 10 Administration, VLAN 20 Services, VLAN 30/40 Formations).
-- Routage : Configuration du protocole de routage dynamique RIPv2 pour l\'échange des tables de routage entre les sites et utilisation du "Router-on-a-Stick" pour le routage inter-VLAN local.
+Étape 2 – SENTIMENTS : J'ai ressenti une grande responsabilité en manipulant les ACL, car une seule erreur de règle peut paralyser l'accès aux ressources critiques d'une entreprise. La réussite du déploiement du service FTP et la vérification des droits d'accès m'ont donné un sentiment d'accomplissement technique.
 
-3. Défis Techniques et Problématiques
-- Convergence : Assurer que chaque site puisse joindre les autres à travers le cœur de réseau sans latence ni boucle.
-- Sécurisation : Mise en place de la translation d\'adresses (NAT) et de listes de contrôle d\'accès (ACL) pour filtrer les trafics entrants et sortants.
-- Réalisation Physique : Passage de la simulation Packet Tracer à la configuration sur du matériel Cisco réel.
+Étape 3 – ÉVALUATION : La segmentation par VLAN a parfaitement fonctionné, améliorant la fluidité du trafic. Le point plus complexe a été la configuration fine des ACL pour autoriser le flux FTP (ports 20/21) tout en bloquant les accès non autorisés, ce qui a demandé plusieurs phases de tests et de corrections.
 
-4. Solutions Appliquées
-- Optimisation : Application de masques de sous-réseau variables pour économiser les adresses IP.
-- Validation technique : Utilisation systématique des commandes "show ip route" pour vérifier la propagation des routes et tests de connectivité (ping/tracert) validant le succès de l\'interconnexion.
+Étape 4 – ANALYSE : J'ai mobilisé mes connaissances sur le modèle OSI et le filtrage par paquets. J'ai compris que la sécurité réseau ne se limite pas à fermer des ports, mais à comprendre précisément les besoins des protocoles (comme le mode actif/passif du FTP) pour ne pas bloquer les services légitimes.
 
-5. Conclusion et Perspectives
-Ce projet a consolidé mes compétences en administration réseau Cisco. Il m\'a permis de maîtriser les fondamentaux de la commutation et du routage dynamique, essentiels pour des infrastructures de plus grande envergure.',
-                'technologies' => ['Cisco IOS', 'VLANs', 'ACL', 'FTP'],
-                'date' => '2026',
-                'category' => 'Réseaux',
-            ],
+Étape 5 – CONCLUSION : Je retiens que la sécurité et la disponibilité sont un équilibre fragile. Si c'était à refaire, j'utiliserais une approche de 'moindre privilège' plus stricte dès le début de la configuration pour limiter les vecteurs d'attaque potentiels.
+
+Étape 6 – PLAN D'ACTION : Je vais approfondir mes connaissances sur la sécurisation des protocoles de transfert (comme SFTP ou FTPS) pour remplacer le FTP standard. Je compte également me former sur la mise en place de pare-feu (Firewalls) dédiés pour compléter les configurations réalisées sur routeurs.
+
+
+
+Document de preuve :
+· Le contexte : Mise en place d'un réseau local sécurisé pour une structure d'entreprise avec services partagés.
+· Les savoirs mis en œuvre : Commutation (VLANs), filtrage de paquets (ACL), protocoles de transfert de fichiers (FTP).
+· Les savoir-faire mis en œuvre : Configuration d'interfaces Cisco IOS, création de règles de sécurité IP, gestion de services réseau.
+· Les savoir-être mis en œuvre : Rigueur méthodologique et capacité à tester systématiquement chaque barrière de sécurité.
+· La tâche réalisée et les résultats : Un réseau segmenté et sécurisé où chaque service accède uniquement aux ressources nécessaires, avec un serveur FTP opérationnel.",
+    'technologies' => ['Cisco IOS', 'VLANs', 'ACL', 'FTP'],
+    'date' => '2026',
+    'category' => 'Réseaux',
+],
             [
                 'id' => 6,
                 'title' => 'Site Web Symfony',
                 'short_description' => 'Développement d\'un site web avec Symfony.',
-                'description' => 'Étude de cas : Développement d\'un E-Portfolio Dynamique avec Symfony
+                'description' => 'L’analyse réflexive est basée sur le modèle de GIBBS :
 
-1. Objectifs et Périmètre du Projet
-L\'objectif principal de ce projet était de concevoir et de déployer une plateforme web professionnelle permettant de centraliser mes compétences en réseaux, cybersécurité et développement. Contrairement à un simple site statique, j\'ai choisi d\'utiliser le framework Symfony 7 pour bénéficier d\'une architecture robuste, d\'une gestion efficace des templates avec Twig et d\'une structure MVC (Modèle-Vue-Contrôleur) évolutive.
+Étape 1 – EXPÉRIENCE : Dans le cadre de la centralisation de mes compétences, j\'ai entrepris de développer un e-portfolio dynamique. Le projet a été réalisé en 2026 en utilisant le framework Symfony 7. J\'ai dû concevoir l\'architecture MVC, gérer le templating avec Twig et assurer la migration de mon environnement de travail complet lors de mon passage sur macOS.
 
-2. Méthodologie et Mise en œuvre
-Pour la réalisation, j\'ai suivi un cycle de développement structuré :
+Étape 2 – SENTIMENTS : Au départ, j\'ai ressenti une certaine appréhension face à la complexité de Symfony et aux défis techniques liés au changement de système d\'exploitation (Mac). Cependant, la structure rigoureuse du framework m\'a apporté un sentiment de maîtrise et de satisfaction professionnelle au fur et à mesure que les composants devenaient fonctionnels.
 
-Architecture logicielle : Mise en place d\'un Controller dédié (ProjectController) pour gérer la logique de navigation et le passage de données aux vues.
+Étape 3 – ÉVALUATION : Ce qui a bien fonctionné : la modularité du code grâce aux templates Twig et la fluidité de l\'interface "Dark Mode". Ce qui a moins bien marché : la gestion initiale des dépendances lors de la migration Git, qui a nécessité une réinstallation complète des outils (Homebrew, Composer) pour retrouver un environnement stable.
 
-Templating dynamique : Utilisation de Twig pour créer un système de templates hérités (base.html.twig). Cela m\'a permis de modulariser les composants répétitifs comme la barre de navigation et le footer.
+Étape 4 – ANALYSE : J\'ai mobilisé des savoirs en programmation orientée objet (PHP 8+) et en intégration web (Bootstrap 5). Le passage sur macOS a exigé une compréhension approfondie de la gestion des paquets via terminal. L\'utilisation d\'une architecture MVC a été l\'outil clé pour séparer la logique de données de l\'affichage, rendant le site beaucoup plus évolutif qu\'un site statique.
 
-Gestion des données : Dans cette phase de développement, j\'ai implémenté une structure de données sous forme de tableaux PHP structurés afin de simuler une base de données, permettant une transition facile vers Doctrine ORM et MySQL à l\'avenir.
+Étape 5 – CONCLUSION : Je retiens que la préparation de l\'environnement de développement est aussi cruciale que le code lui-même. Si c\'était à refaire, j\'anticiperais davantage la configuration Docker pour isoler l\'environnement dès le début du projet, ce qui aurait facilité la migration entre Windows et Mac.
 
-Design et UX : J\'ai opté pour une approche "Dark Mode" moderne en utilisant CSS3 (variables personnalisées) et Bootstrap 5. L\'accent a été mis sur l\'interactivité, notamment en transformant chaque carte de projet en un bouton global cliquable pour améliorer le parcours utilisateur.
+Étape 6 – PLAN D\'ACTION : Pour mes prochains projets, je vais automatiser le déploiement de ma base de données via Doctrine ORM. Je compte également intégrer un service d\'envoi d\'emails (Mailer) et sécuriser un espace administration. Mon objectif est de passer d\'une gestion de données statique à un backend totalement administrable sous 3 mois.
 
-3. Défis Techniques et Problématiques
-Le passage à un environnement de développement sous macOS et l\'utilisation d\'un framework professionnel ont apporté plusieurs défis :
 
-Migration d\'environnement : Réinstaller l\'intégralité de la pile technique (Homebrew, PHP, Composer, Symfony CLI) sur une nouvelle architecture système tout en récupérant les sources via Git sans corrompre les dépendances.
 
-Cohérence de l\'UI : Le défi était de maintenir un design épuré tout en rendant l\'interface intuitive. Transformer des éléments complexes (cartes avec badges, textes et dates) en éléments entièrement cliquables sans briser la sémantique HTML a nécessité une attention particulière sur le CSS.
-
-Routage dynamique : Gérer l\'affichage de pages de détails uniques à partir d\'un identifiant (ID) passé dans l\'URL, tout en s\'assurant que si un projet n\'existe pas, l\'utilisateur est redirigé proprement.
-
-4. Solutions Appliquées
-Normalisation du CSS : Utilisation de variables :root pour une gestion centralisée des couleurs (gris anthracite, blanc pur et bordures sombres), garantissant une harmonie visuelle sur toutes les pages.
-
-Optimisation du Routage : Mise en place de restrictions par expressions régulières dans le Controller (ex: requirements: [\'id\' => \'\d+\']) pour sécuriser les URLs.
-
-Architecture centralisée : Création d\'une méthode privée getProjectsData() pour centraliser la source de vérité des données, évitant la redondance de code entre la page d\'accueil et la page de détails.
-
-5. Conclusion et Perspectives
-Ce projet m\'a permis de consolider mes bases sur l\'écosystème PHP moderne. La prochaine étape sera l\'intégration d\'une base de données SQL pour rendre le contenu administrable via un backend sécurisé, ainsi que l\'ajout d\'une interface de contact liée à un service d\'envoi d\'emails.',
+Document de preuve :
+· Le contexte : Création d\'un support de communication professionnel pour valoriser mon parcours en R&T.
+· Les savoirs mis en œuvre : Architecture MVC, Framework Symfony 7, moteur de rendu Twig, programmation orientée objet (POO).
+· Les savoir-faire mis en œuvre : Installation d\'un environnement de développement sous macOS, gestion du routage dynamique, création de templates hérités.
+· Les savoir-être mis en œuvre : Autonomie dans l\'apprentissage d\'un nouveau framework et rigueur dans l\'organisation du code.
+· La tâche réalisée et les résultats : Site web fonctionnel avec affichage dynamique des projets, design responsive "Dark Mode" et navigation sécurisée.',
                 'technologies' => ['PHP', 'Symfony', 'MySQL', 'Bootstrap'],
                 'date' => '2025',
                 'category' => 'Développement Web',
@@ -118,34 +106,32 @@ Ce projet m\'a permis de consolider mes bases sur l\'écosystème PHP moderne. L
             'id' => 7,
             'title' => 'Déploiement WordPress sous Docker',
             'short_description' => 'Mise en place d\'une architecture conteneurisée pour un CMS.',
-            'description' => 'Étude de cas : Mise en place d\'une solution informatique pour l\'entreprise (SAÉ 23)
+            'description' => "L’analyse réflexive est basée sur le modèle de GIBBS :
 
-                1. Objectifs et Périmètre du Projet
-                L\'objectif de cette SAÉ était de créer un environnement de travail reproductible et isolé utilisant la conteneurisation. Il s\'agissait de déployer un CMS WordPress fonctionnel interconnecté avec une base de données MariaDB, tout en permettant une gestion simplifiée via phpMyAdmin.
+Étape 1 – EXPÉRIENCE : Dans le cadre de la SAÉ 2.03, j'ai dû déployer une solution CMS WordPress complète en utilisant la conteneurisation Docker. L'objectif était de créer une infrastructure reproductible comprenant trois services interconnectés : WordPress pour le contenu, MariaDB pour la base de données et phpMyAdmin pour l'administration SQL, le tout orchestré par un fichier Docker-Compose.
 
-                2. Méthodologie et Mise en œuvre
-                Pour ce projet, j\'ai utilisé une approche Infrastructure as Code (IaC) :
-                - Orchestration : Utilisation de Docker et Docker-Compose pour définir et lancer plusieurs conteneurs simultanément (WordPress, MariaDB, phpMyAdmin).
-                - Persistance des données : Configuration de volumes Docker pour garantir que les données de la base de données et les fichiers WordPress ne soient pas perdus lors de l\'arrêt des conteneurs.
-                - Gestion SQL : Création et manipulation de bases de données via phpMyAdmin, incluant l\'import/export de sauvegardes SQL et la gestion des utilisateurs.
-                - Sécurisation : Analyse des failles potentielles comme les injections SQL et mise en place de bonnes pratiques de configuration.
+Étape 2 – SENTIMENTS : J'ai d'abord été impressionné par la puissance de Docker, qui permet de monter une infrastructure entière en quelques secondes. Cependant, j'ai ressenti de la frustration face aux erreurs de connexion entre les conteneurs et aux problèmes de droits d'écriture sur les volumes, ce qui a mis à l'épreuve ma patience et ma rigueur logique.
 
-                3. Défis Techniques et Problématiques
-                - Communication Inter-Conteneurs : Configurer correctement le réseau Docker pour que le conteneur WordPress puisse communiquer de manière isolée et sécurisée avec le conteneur MariaDB.
-                - Gestion des Permissions : Résoudre les problèmes de droits d\'écriture sur les volumes montés pour permettre les mises à jour et l\'installation de thèmes WordPress.
-                - Optimisation des Ressources : Apprendre à limiter l\'empreinte mémoire des conteneurs tout en conservant une fluidité de navigation sur le site.
+Étape 3 – ÉVALUATION : Ce qui a très bien fonctionné, c'est l'aspect 'Infrastructure as Code' : une fois le fichier YAML stabilisé, le déploiement est devenu instantané et fiable. Ce qui a été plus complexe, c'est la gestion de la persistance des données (volumes) et la sécurisation des accès, qui demandent une compréhension précise du cycle de vie des conteneurs.
 
-                4. Solutions Appliquées
-                - Réseaux Docker : Création d\'un réseau privé (bridge) dédié pour isoler le trafic de la base de données de l\'extérieur.
-                - Automatisation : Écriture de scripts YAML (docker-compose.yml) permettant de recréer l\'intégralité de l\'infrastructure en une seule commande.
-                - Sécurisation des accès : Utilisation de variables d\'environnement pour masquer les mots de passe root de la base de données.
+Étape 4 – ANALYSE : J'ai mobilisé des compétences en administration système Linux et en réseaux virtuels. J'ai compris que Docker ne se limite pas à 'lancer des logiciels', mais nécessite une vraie stratégie de réseau (Docker Bridge) pour isoler la base de données et de gestion de l'environnement (fichiers .env) pour sécuriser les mots de passe.
 
-                5. Conclusion et Perspectives
-                Cette SAÉ m\'a permis de maîtriser les bases de la conteneurisation, un standard actuel de l\'industrie. Cela constitue une base solide pour évoluer vers des outils d\'orchestration plus complexes comme Kubernetes ou pour le déploiement continu (CI/CD).',
+Étape 5 – CONCLUSION : Je retiens que la conteneurisation est indispensable pour garantir qu'un projet fonctionne de la même manière sur mon Mac que sur un serveur de production. Si c'était à refaire, je structurerais mes volumes de manière plus granulaire dès le départ pour éviter les conflits de permissions entre l'hôte et le conteneur.
+
+Étape 6 – PLAN D'ACTION : Fort de cette expérience, je vais désormais systématiser l'usage de Docker pour tous mes développements locaux, y compris pour mon portfolio Symfony. À l'avenir, je souhaite explorer Docker Swarm ou Kubernetes pour apprendre à gérer la montée en charge et la haute disponibilité de ces conteneurs.
+
+
+
+Document de preuve :
+· Le contexte : Mise en place d'une infrastructure web isolée et reproductible pour le déploiement d'un CMS.
+· Les savoirs mis en œuvre : Conteneurisation, orchestration Docker-Compose, gestion des volumes et des réseaux virtuels (Bridge).
+· Les savoir-faire mis en œuvre : Rédaction d'un fichier docker-compose.yml, interconnexion WordPress/MariaDB, persistance des données SQL via volumes.
+· Les savoir-être mis en œuvre : Logique systémique pour comprendre les interactions entre services et persévérance face aux erreurs de permissions.
+· La tâche réalisée et les résultats : Infrastructure complète lancée en une seule commande, site WordPress fonctionnel avec base de données sécurisée et administrable.",
             'technologies' => ['Docker', 'MariaDB', 'WordPress', 'phpMyAdmin'],
-            'date' => '2024',
+            'date' => '2026',
             'category' => 'Administration Système',
-        ],
+            ],
         ];
     }
 }
